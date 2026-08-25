@@ -59,6 +59,119 @@ body{padding:18px}
 @media (max-width:1280px){.brand h1{font-size:48px}.brand p{font-size:28px}.theme-copy h2{font-size:32px}.theme-copy p{font-size:20px}.stats .stat b{font-size:28px}.dashboard{grid-template-columns:300px minmax(0,1fr)}.right-col{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px}}
 @media (max-width:1024px){body{padding:12px}.app{grid-template-columns:1fr}.sidebar{position:static}.main{order:-1}.topbar{padding:0}.dashboard{grid-template-columns:1fr}.right-col{grid-template-columns:1fr}.theme-grid,.stats,.phrase-wrap{grid-template-columns:1fr}.sidebar{padding:16px}.levels{grid-template-columns:repeat(7,minmax(116px,1fr));overflow:auto;padding-bottom:4px}.side-home,.side-links,.goal-card{margin-bottom:0}}
 @media (max-width:760px){.brand{align-items:center}.sun{font-size:38px}.brand h1{font-size:34px}.brand p{font-size:22px;margin-top:6px}.actions{width:100%;justify-content:stretch}.pill-select{width:100%;font-size:18px;padding:13px 42px 13px 14px;min-width:0}.topbar{flex-direction:column}.theme-card{grid-template-columns:1fr;gap:14px;padding:12px}.theme-copy h2{font-size:28px}.theme-copy p{font-size:17px}.theme-copy button{font-size:18px;padding:14px 18px;width:100%}.stats{grid-template-columns:1fr 1fr}.stat h4{font-size:14px}.stat b{font-size:22px}.dashboard{gap:12px}.phrase-wrap{grid-template-columns:1fr}.panel h3{font-size:22px}.info-card p,.tip-card p{font-size:16px}.right-col{display:grid;grid-template-columns:1fr}.levels{grid-template-columns:repeat(7,150px)}}
+
+/* Mobile-first polish: also activates on coarse-pointer phones that request desktop-sized pages. */
+.mobile-level-panel{display:none}
+@media (max-width:1024px), (hover:none) and (pointer:coarse) and (max-width:1180px){
+  body{padding:10px;background:#fbf8f1}
+  .app{display:block;max-width:760px;margin:0 auto}
+  .sidebar{display:none}
+  .main{display:grid;gap:14px;order:0}
+  .topbar{background:#fffdf8;border:1px solid #eadfcf;border-radius:20px;padding:14px;box-shadow:0 6px 20px rgba(27,42,36,.06);flex-direction:column}
+  .brand{gap:10px;align-items:center}
+  .sun{font-size:38px}
+  .brand h1{font-size:32px;line-height:1.05;letter-spacing:-.035em}
+  .brand p{font-size:19px;line-height:1.15;margin-top:5px}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;margin-top:2px}
+  .select-wrap{width:100%}
+  .pill-select{width:100%;min-width:0;font-size:16px;line-height:1.2;padding:13px 36px 13px 13px;border-radius:14px}
+  .select-wrap:after{right:12px;font-size:18px}
+
+  .theme-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:1px 1px 6px;margin:0 -1px;scrollbar-width:none}
+  .theme-grid::-webkit-scrollbar{display:none}
+  .theme-card{flex:0 0 calc(100% - 24px);grid-template-columns:1fr;gap:10px;padding:10px;border-radius:20px;scroll-snap-align:start;box-shadow:0 6px 18px rgba(27,42,36,.07)}
+  .theme-card .radio{width:28px;height:28px;right:12px;top:12px}
+  .theme-visual{height:clamp(175px,40vw,260px);min-height:0;border-radius:15px}
+  .theme-copy{padding:2px 4px 4px}
+  .theme-copy h2{font-size:24px;margin:0 0 7px}
+  .theme-copy p{font-size:16px;line-height:1.45;margin:0 0 11px}
+  .theme-copy button{font-size:16px;padding:13px 16px;width:100%;border-radius:14px}
+
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .stat{min-width:0;padding:13px 12px;border-radius:16px;gap:9px}
+  .stat .em{font-size:27px}
+  .stat h4{font-size:13px;line-height:1.25}
+  .stat b{font-size:21px;margin-top:3px}
+  .stat b span{font-size:13px}
+
+  .mobile-level-panel{display:block;background:#0f3d35;color:#fff;border-radius:20px;padding:14px;box-shadow:0 8px 24px rgba(15,61,53,.16)}
+  .mobile-level-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:11px;font-size:17px}
+  .mobile-level-head span{font-size:13px;color:rgba(255,255,255,.76);font-weight:700}
+  .mobile-levels{display:flex;gap:9px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  .mobile-levels::-webkit-scrollbar{display:none}
+  .mobile-level-btn{flex:0 0 auto;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;border-radius:14px;padding:9px 11px;display:flex;align-items:center;gap:8px;cursor:pointer}
+  .mobile-level-btn.active{background:#fff;color:#15392f;border-color:#fff}
+  .mobile-level-btn .level-chip{min-width:34px;height:34px;font-size:14px}
+  .mobile-level-btn b{font-size:14px;white-space:nowrap}
+
+  .dashboard{display:grid;grid-template-columns:1fr;gap:12px}
+  .panel{padding:15px;border-radius:19px}
+  .panel h3{font-size:22px;line-height:1.25}
+  .panel .sub{font-size:14px;line-height:1.45}
+  .lesson-head{margin-bottom:6px}
+  .progress-line{margin:10px 0 12px}
+  .lesson-list{gap:8px}
+  .lesson-btn{padding:11px;border-radius:14px;gap:10px}
+  .lesson-icon{font-size:25px}
+  .lesson-title{font-size:16px;line-height:1.3}
+  .lesson-desc{font-size:12px;line-height:1.35}
+  .lesson-status{font-size:19px}
+  .all-lessons{padding:12px;margin-top:10px}
+
+  .center-top{display:grid;grid-template-columns:1fr;gap:10px}
+  .mini-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .mini-btn{padding:11px 10px;font-size:14px}
+  .section-label{font-size:12px}
+  .lesson-image{height:clamp(195px,35vw,300px);min-height:0;border-radius:15px}
+  .phrase-wrap{grid-template-columns:1fr;gap:10px}
+  .phrase-box,.word-box{padding:12px;border-radius:15px}
+  .phrase-row{padding:10px 0}
+  .phrase-af{font-size:14px}
+  .phrase-af b{font-size:19px;line-height:1.25}
+  .audio{font-size:18px;padding:7px 9px}
+  .word-box h4{font-size:19px}
+  .word-item{font-size:13px}
+  .word-item b{font-size:17px}
+  .bottom-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px}
+  .action-primary,.action-secondary{width:100%;padding:13px 15px;font-size:15px}
+
+  .right-col{display:grid;grid-template-columns:1fr;gap:12px;grid-column:auto}
+  .info-card .visual img{height:180px}
+  .info-card p,.tip-card p{font-size:15px;line-height:1.55}
+  .tip-card{margin-top:0;padding:14px;grid-template-columns:1fr 46px}
+  .tip-card h4{font-size:19px}
+  .tip-plant{font-size:40px}
+
+  .sheet{width:min(96vw,680px);padding:18px;border-radius:20px}
+  .sheet-head h3{font-size:24px}
+  textarea{min-height:180px;font-size:16px}
+}
+@media (max-width:480px){
+  body{padding:8px}
+  .topbar{padding:12px}
+  .brand h1{font-size:29px}
+  .brand p{font-size:17px}
+  .sun{font-size:34px}
+  .actions{grid-template-columns:1fr 1fr}
+  .pill-select{font-size:14px;padding:12px 31px 12px 11px}
+  .theme-card{flex-basis:calc(100% - 18px)}
+  .theme-visual{height:175px}
+  .theme-copy h2{font-size:22px}
+  .theme-copy p{font-size:15px}
+  .stats{gap:8px}
+  .stat{padding:11px 10px}
+  .stat .em{font-size:24px}
+  .stat b{font-size:19px}
+  .mobile-level-panel{padding:12px}
+  .panel{padding:13px}
+  .lesson-image{height:195px}
+}
+
+
+/* Prevent intrinsic content from widening the mobile viewport. */
+.app,.main,.topbar,.brand,.actions,.theme-grid,.theme-card,.stats,.stat,.mobile-level-panel,.mobile-levels,.dashboard,.panel,.right-col,.scene-card,.phrase-wrap,.phrase-box,.word-box{min-width:0;max-width:100%}
+body{overflow-x:hidden}
+
 </style>
 </head>
 <body>
@@ -114,6 +227,11 @@ body{padding:18px}
       <div class="stat"><div class="em">🔥</div><div><h4 data-i="statStreak">연속 학습</h4><b><span id="streakCount">1</span> <span data-i="days">일</span></b></div></div>
       <div class="stat"><div class="em">📘</div><div><h4 data-i="statDone">완료한 레슨</h4><b><span id="completedCount">0</span> <span data-i="items">개</span></b></div></div>
       <div class="stat"><div class="em">🏆</div><div><h4 data-i="statBadge">획득한 배지</h4><b><span id="badgeCount">0</span> <span data-i="items">개</span></b></div></div>
+    </section>
+
+    <section class="mobile-level-panel" aria-label="Level selector">
+      <div class="mobile-level-head"><strong data-i="levelSelect">레벨 선택</strong><span id="mobileLevelSummary"></span></div>
+      <div class="mobile-levels" id="mobileLevelList"></div>
     </section>
 
     <section class="dashboard">
@@ -191,10 +309,10 @@ let state = loadState();
 applyStreak();
 
 const el = id => document.getElementById(id);
-const levelList = el('levelList'); const lessonList = el('lessonList');
+const levelList = el('levelList'); const lessonList = el('lessonList'); const mobileLevelList = el('mobileLevelList');
 
 function loadState() { try { return Object.assign({}, defaultState, JSON.parse(localStorage.getItem(LS_KEY)||'{}')); } catch(e) { return {...defaultState}; } }
-function saveState() { localStorage.setItem(LS_KEY, JSON.stringify(state)); renderStats(); renderSidebarGoal(); }
+function saveState() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e) {} }
 function t(key) { return (TEXT[state.lang]&&TEXT[state.lang][key]) || key; }
 function setText() { document.documentElement.lang = state.lang==='ko'?'ko':'en'; document.querySelectorAll('[data-i]').forEach(node=>{ node.textContent = t(node.dataset.i); }); el('writingArea').placeholder = state.lang==='ko' ? '예: 제 가족은 서울에 살아요. 저는 Afrikaans를 조금 배워요…' : 'Example: My family lives in Seoul. I am learning a little Afrikaans…'; el('langSelect').value = state.lang; el('themeSelect').value = state.theme; }
 function totalLessons() { return LEVEL_ORDER.reduce((n,lv)=>n+COURSE[lv].lessons.length,0); }
@@ -203,6 +321,8 @@ function overallProgress() { let done=0; LEVEL_ORDER.forEach(lv=>done += levelPr
 function badgeCount() { return LEVEL_ORDER.filter(lv=>levelProgress(lv).done===COURSE[lv].lessons.length).length; }
 function applyStreak() { const today = new Date().toISOString().slice(0,10); if(!state.lastActive){ state.lastActive=today; } else if(state.lastActive !== today) { const prev = new Date(state.lastActive); const now = new Date(today); const diff = Math.round((now - prev)/(1000*60*60*24)); if(diff===1) state.streak = (state.streak||1)+1; else if(diff>1) state.streak = 1; state.lastActive=today; } saveState(); }
 function renderLevels() { levelList.innerHTML=''; LEVEL_ORDER.forEach(lv=>{ const meta = COURSE[lv]; const btn = document.createElement('button'); btn.className = 'level-btn'+(state.level===lv?' active':''); btn.innerHTML = `<span class="level-chip" style="background:${LEVEL_COLORS[lv]}">${lv}</span><span class="level-meta"><b>${state.lang==='ko'?meta.name_ko:meta.name_en}</b><span>${state.lang==='ko' ? meta.goal_ko : meta.goal_en}</span></span>`; btn.onclick=()=>{ state.level=lv; state.lesson=0; saveState(); render(); }; levelList.appendChild(btn); }); }
+function renderMobileLevels() { mobileLevelList.innerHTML=''; LEVEL_ORDER.forEach(lv=>{ const meta=COURSE[lv]; const btn=document.createElement('button'); btn.className='mobile-level-btn'+(state.level===lv?' active':''); btn.innerHTML=`<span class="level-chip" style="background:${LEVEL_COLORS[lv]}">${lv}</span><b>${state.lang==='ko'?meta.name_ko:meta.name_en}</b>`; btn.onclick=()=>{ state.level=lv; state.lesson=0; saveState(); render(); document.querySelector('.dashboard').scrollIntoView({behavior:'smooth',block:'start'}); }; mobileLevelList.appendChild(btn); }); const p=levelProgress(state.level); el('mobileLevelSummary').textContent=`${state.level} · ${p.done}/${p.total}`; }
+
 function renderThemeCards() { el('characterCard').classList.toggle('active', state.theme==='character'); el('journeyCard').classList.toggle('active', state.theme==='journey'); }
 function renderStats() { const overall = overallProgress(); el('completedCount').textContent = overall.done; el('badgeCount').textContent = badgeCount(); el('streakCount').textContent = state.streak||1; }
 function renderSidebarGoal() { const overall = overallProgress(); const minutes = Math.min(15, Math.max(3, overall.done)); el('goalText').textContent = `${minutes} / 15`; el('goalFill').style.width = `${Math.round(minutes/15*100)}%`; }
@@ -212,7 +332,7 @@ function renderLessonDetail() { const lesson = currentLesson(); const meta = COU
   const phraseBox = el('phraseBox'); phraseBox.innerHTML=''; lesson.phrases.forEach(p=>{ const row=document.createElement('div'); row.className='phrase-row'; const gloss = state.lang==='ko'? p[2] : p[1]; row.innerHTML = `<div class="phrase-af"><b>${p[0]}</b><span>${gloss}</span></div><button class="audio" aria-label="play">🔊</button>`; row.querySelector('button').onclick=()=>speak(p[0]); phraseBox.appendChild(row); });
   const wordList = el('wordList'); wordList.innerHTML=''; lesson.phrases.forEach(p=>{ const item=document.createElement('div'); item.className='word-item'; item.innerHTML = `<div><b>${p[0]}</b><div>${state.lang==='ko'?p[2]:p[1]}</div></div><button class="audio">🔊</button>`; item.querySelector('button').onclick=()=>speak(p[0]); wordList.appendChild(item); });
   const cultureIndex = (state.lesson + LEVEL_ORDER.indexOf(state.level)) % CULTURE.length; const culture=CULTURE[cultureIndex]; el('cultureText').textContent = state.lang==='ko'? culture.body_ko : culture.body; el('tipText').textContent = t('tipBody'); el('bookmarkBtn').innerHTML = (state.bookmarks[`${state.level}-${state.lesson}`]?'⭐':'🔖')+' '+t('bookmark'); el('writingArea').value = state.writing[`${state.level}-${state.lesson}`] || ''; el('writingSaved').textContent=''; }
-function render() { setText(); renderThemeCards(); renderLevels(); renderStats(); renderSidebarGoal(); renderLessons(); renderLessonDetail(); }
+function render() { setText(); renderThemeCards(); renderLevels(); renderMobileLevels(); renderStats(); renderSidebarGoal(); renderLessons(); renderLessonDetail(); }
 function speak(text) { const u = new SpeechSynthesisUtterance(text); const voices = speechSynthesis.getVoices(); u.voice = voices.find(v=>/af-ZA/i.test(v.lang)) || voices.find(v=>/af/i.test(v.lang)) || voices.find(v=>/en-ZA/i.test(v.lang)) || null; u.lang = u.voice?.lang || 'af-ZA'; u.rate = 0.92; speechSynthesis.cancel(); speechSynthesis.speak(u); }
 function openModal(id) { el(id).classList.add('show'); }
 function closeModal(id) { el(id).classList.remove('show'); }
