@@ -77,15 +77,16 @@ body{padding:18px}
   .pill-select{width:100%;min-width:0;font-size:16px;line-height:1.2;padding:13px 36px 13px 13px;border-radius:14px}
   .select-wrap:after{right:12px;font-size:18px}
 
-  .theme-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:1px 1px 6px;margin:0 -1px;scrollbar-width:none}
-  .theme-grid::-webkit-scrollbar{display:none}
-  .theme-card{flex:0 0 calc(100% - 24px);grid-template-columns:1fr;gap:10px;padding:10px;border-radius:20px;scroll-snap-align:start;box-shadow:0 6px 18px rgba(27,42,36,.07)}
-  .theme-card .radio{width:28px;height:28px;right:12px;top:12px}
-  .theme-visual{height:clamp(175px,40vw,260px);min-height:0;border-radius:15px}
-  .theme-copy{padding:2px 4px 4px}
-  .theme-copy h2{font-size:24px;margin:0 0 7px}
-  .theme-copy p{font-size:16px;line-height:1.45;margin:0 0 11px}
-  .theme-copy button{font-size:16px;padding:13px 16px;width:100%;border-radius:14px}
+  /* Mobile: show only the selected theme card so the level area appears sooner. */
+  .theme-grid{display:block;width:100%;overflow:hidden;padding:0;margin:0}
+  .theme-card{width:100%;grid-template-columns:1fr;gap:8px;padding:9px;border-radius:20px;box-shadow:0 6px 18px rgba(27,42,36,.07);margin:0}
+  .theme-card:not(.active){display:none}
+  .theme-card .radio{width:26px;height:26px;right:11px;top:11px}
+  .theme-visual{height:clamp(150px,34vw,220px);min-height:0;border-radius:15px}
+  .theme-copy{padding:1px 4px 3px}
+  .theme-copy h2{font-size:22px;margin:0 0 5px;line-height:1.2}
+  .theme-copy p{font-size:15px;line-height:1.4;margin:0 0 9px}
+  .theme-copy button{font-size:15px;padding:12px 14px;width:100%;border-radius:14px}
 
   .stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
   .stat{min-width:0;padding:13px 12px;border-radius:16px;gap:9px}
@@ -154,10 +155,11 @@ body{padding:18px}
   .sun{font-size:34px}
   .actions{grid-template-columns:1fr 1fr}
   .pill-select{font-size:14px;padding:12px 31px 12px 11px}
-  .theme-card{flex-basis:calc(100% - 18px)}
-  .theme-visual{height:175px}
-  .theme-copy h2{font-size:22px}
-  .theme-copy p{font-size:15px}
+  .theme-card{width:100%}
+  .theme-visual{height:148px}
+  .theme-copy h2{font-size:20px}
+  .theme-copy p{font-size:14px;line-height:1.4}
+  .theme-copy button{font-size:15px;padding:11px 13px}
   .stats{gap:8px}
   .stat{padding:11px 10px}
   .stat .em{font-size:24px}
@@ -170,7 +172,7 @@ body{padding:18px}
 
 /* Prevent intrinsic content from widening the mobile viewport. */
 .app,.main,.topbar,.brand,.actions,.theme-grid,.theme-card,.stats,.stat,.mobile-level-panel,.mobile-levels,.dashboard,.panel,.right-col,.scene-card,.phrase-wrap,.phrase-box,.word-box{min-width:0;max-width:100%}
-body{overflow-x:hidden}
+html,body{width:100%;overflow-x:hidden}
 
 </style>
 </head>
