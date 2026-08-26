@@ -1,4 +1,4 @@
-const CACHE = "afrikaans-studio-v9-sa";
+const CACHE = "afrikaans-studio-v9-1-sa";
 const CORE = [
   "/afrikaans",
   "/manifest.webmanifest",

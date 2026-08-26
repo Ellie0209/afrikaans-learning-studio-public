@@ -225,8 +225,11 @@ body{background-attachment:fixed}
 .topbar .actions{position:relative;z-index:2}.topbar .pill-select{background:#fff;color:#17362d;border:2px solid rgba(255,184,28,.8);box-shadow:none}
 
 .sa-identity-strip{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 1px 4px}.sa-identity-strip::-webkit-scrollbar{display:none}
-.sa-identity-strip span{flex:0 0 auto;background:#fff;border:1px solid #dfd3bb;border-radius:999px;padding:9px 13px;font-size:13px;font-weight:850;color:#21463a;box-shadow:0 4px 12px rgba(27,42,36,.05)}
-.sa-identity-strip span:first-child{background:#073f32;color:#fff;border-color:#073f32}.sa-identity-strip span:last-child{background:#fff2c7;border-color:#ffd76b}
+.sa-identity-strip .sa-chip{flex:0 0 auto;appearance:none;background:#fff;border:1px solid #dfd3bb;border-radius:999px;padding:9px 13px;font-size:13px;font-weight:850;color:#21463a;box-shadow:0 4px 12px rgba(27,42,36,.05);cursor:pointer;touch-action:manipulation;white-space:nowrap;transition:transform .12s ease,box-shadow .12s ease,background .12s ease}
+.sa-identity-strip .sa-chip:hover{box-shadow:0 7px 18px rgba(27,42,36,.12);transform:translateY(-1px)}
+.sa-identity-strip .sa-chip:active{transform:translateY(1px);box-shadow:0 2px 7px rgba(27,42,36,.10)}
+.sa-identity-strip .sa-chip:focus-visible{outline:3px solid var(--sa-gold);outline-offset:2px}
+.sa-identity-strip .sa-chip:first-child{background:#073f32;color:#fff;border-color:#073f32}.sa-identity-strip .sa-chip:last-child{background:#fff2c7;border-color:#ffd76b}
 
 .theme-grid.sa-route-grid{gap:16px}.sa-route-grid .theme-card{border:0;background:#fff;border-radius:24px;padding:10px;box-shadow:0 10px 30px rgba(32,52,43,.09);grid-template-columns:minmax(250px,1.05fr) 1fr}
 .sa-route-grid .theme-card:after{content:'';position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--sa-green),var(--sa-gold),var(--sa-red))}
@@ -253,7 +256,7 @@ body{background-attachment:fixed}
   .topbar.sa-hero{background:linear-gradient(135deg,#063e32 0%,#007749 70%,#005b4f 100%);padding:18px 16px 16px;border-radius:22px}
   .sa-flag-badge{width:54px;height:54px;border-radius:17px;font-size:34px}.brand h1{font-size:32px}.brand p{font-size:16px;color:#fff}.brand-afrikaans{font-size:12px}.sa-kicker{font-size:10px}
   .topbar .actions{margin-top:5px}.topbar .pill-select{border-width:1px;border-color:#ffd45d}
-  .sa-identity-strip{margin-top:-2px}.sa-identity-strip span{font-size:12px;padding:8px 11px}
+  .sa-identity-strip{margin-top:-2px}.sa-identity-strip .sa-chip{font-size:12px;padding:8px 11px}
   .theme-grid.sa-route-grid{display:block}.sa-route-grid .theme-card{grid-template-columns:1fr;padding:8px}.sa-route-grid .theme-visual{height:155px;min-height:0}.sa-route-grid .theme-copy h2{font-size:21px}.sa-route-grid .theme-copy p{font-size:14px}.route-label{font-size:10px}
 }
 @media (max-width:480px){.brand{align-items:flex-start}.sa-flag-badge{width:48px;height:48px;font-size:30px}.brand h1{font-size:27px}.brand-afrikaans{display:none}.sa-kicker{letter-spacing:.09em}.topbar.sa-hero{padding:16px 12px 13px}}
@@ -296,7 +299,13 @@ body{background-attachment:fixed}
     </header>
 
     <section class="sa-identity-strip" aria-label="South African Afrikaans places and words">
-      <span>🇿🇦 Suid-Afrika</span><span>🏙️ Kaapstad</span><span>🏔️ Tafelberg</span><span>🌿 fynbos</span><span>🏜️ Karoo</span><span>🌊 Weskus</span><span>💬 lekker · kuier · dankie</span>
+      <button class="sa-chip" type="button" data-sa-place="south-africa">🇿🇦 Suid-Afrika</button>
+      <button class="sa-chip" type="button" data-sa-place="cape-town">🏙️ Kaapstad</button>
+      <button class="sa-chip" type="button" data-sa-place="table-mountain">🏔️ Tafelberg</button>
+      <button class="sa-chip" type="button" data-sa-place="fynbos">🌿 fynbos</button>
+      <button class="sa-chip" type="button" data-sa-place="karoo">🏜️ Karoo</button>
+      <button class="sa-chip" type="button" data-sa-place="west-coast">🌊 Weskus</button>
+      <button class="sa-chip" type="button" data-sa-place="words">💬 lekker · kuier · dankie</button>
     </section>
 
     <section class="theme-grid sa-route-grid">
@@ -527,6 +536,61 @@ function renderPanel(kind) {
   }
   openModal('panelModal');
 }
+
+const SA_PLACES = {
+  'south-africa': {
+    icon:'🇿🇦', title:'Suid-Afrika',
+    ko:'Afrikaans는 남아공의 다언어 환경 속에서 여러 공동체가 사용하는 살아 있는 언어입니다. 표준 Afrikaans를 기반으로 하되 지역·세대·공동체에 따른 실제 언어 변이도 함께 익혀요.',
+    en:'Afrikaans is a living South African language used across diverse communities in a multilingual country. Learn a clear standard base while recognising real regional and social variation.',
+    phrase:'Welkom in Suid-Afrika!'
+  },
+  'cape-town': {
+    icon:'🏙️', title:'Kaapstad · Cape Town',
+    ko:'Kaapstad는 Afrikaans, English 그리고 여러 남아공 언어가 자연스럽게 공존하는 도시입니다. 이 코스에서는 케이프 지역의 일상 표현과 문화 맥락을 별도의 표지와 함께 다룹니다.',
+    en:'Cape Town is a multilingual city where Afrikaans, English and other South African languages meet. The course labels Cape-based everyday language and cultural context clearly.',
+    phrase:'Ek woon nou in Kaapstad.'
+  },
+  'table-mountain': {
+    icon:'🏔️', title:'Tafelberg · Table Mountain',
+    ko:'Tafelberg은 Kaapstad를 상징하는 지형입니다. 장소 이름도 Afrikaans 그대로 익히면서 길 묻기, 날씨, 여행 표현으로 연결해 보세요.',
+    en:'Tafelberg is one of Cape Town’s defining landmarks. Use the Afrikaans place name as a gateway into directions, weather and travel language.',
+    phrase:'Kyk hoe mooi is Tafelberg.'
+  },
+  'fynbos': {
+    icon:'🌿', title:'fynbos',
+    ko:'fynbos는 케이프 지역을 대표하는 식생을 가리키는 남아공 어휘입니다. 단순 번역보다 실제 지역·풍경과 함께 단어를 기억하도록 구성했습니다.',
+    en:'Fynbos is a South African landscape word strongly associated with the Cape. Learn it with its real place and ecological context rather than as an isolated translation.',
+    phrase:'Die fynbos is pragtig.'
+  },
+  'karoo': {
+    icon:'🏜️', title:'Karoo',
+    ko:'Karoo는 남아공 내륙의 광대한 건조 지역을 가리킵니다. 로드트립, padkos, 거리, 날씨 같은 남아공 생활 어휘와 자연스럽게 연결됩니다.',
+    en:'The Karoo is a vast semi-arid South African region. It connects naturally with road-trip Afrikaans such as padkos, distance, weather and travel.',
+    phrase:'Ons ry deur die Karoo.'
+  },
+  'west-coast': {
+    icon:'🌊', title:'Weskus · West Coast',
+    ko:'Weskus는 남아공 서해안 지역을 뜻합니다. 해안 풍경과 지역성을 통해 장소·여행·날씨 관련 Afrikaans를 익힐 수 있습니다.',
+    en:'Weskus means the West Coast. Use coastal and regional context to build Afrikaans for places, travel and weather.',
+    phrase:'Ons gaan Weskus toe.'
+  },
+  'words': {
+    icon:'💬', title:'lekker · kuier · dankie',
+    ko:'남아공 Afrikaans를 자연스럽게 느끼게 해 주는 핵심 일상어예요. lekker는 “좋다/즐겁다/맛있다”처럼 폭넓게 쓰이고, kuier는 편하게 함께 시간을 보내는 느낌, dankie는 “고마워요”입니다.',
+    en:'These are high-value everyday Afrikaans words. lekker is widely used for “nice/good/enjoyable”, kuier is relaxed social time together, and dankie means “thank you”.',
+    phrase:'Lekker om saam te kuier. Baie dankie!'
+  }
+};
+function openSaPlace(key) {
+  const item=SA_PLACES[key]; if(!item) return;
+  stopAudio();
+  el('panelTitle').textContent=`${item.icon} ${item.title}`;
+  const body=state.lang==='ko'?item.ko:item.en;
+  el('panelContent').innerHTML=`<div class="mini-card"><h4>${item.icon} ${item.title}</h4><p>${body}</p><div class="tool-row"><span><b>${item.phrase}</b></span><button class="audio" id="saPlaceAudio" type="button" aria-label="Play Afrikaans pronunciation">🔊</button></div></div>`;
+  el('saPlaceAudio').onclick=()=>speak(item.phrase);
+  openModal('panelModal');
+}
+document.querySelectorAll('[data-sa-place]').forEach(btn=>btn.addEventListener('click',()=>openSaPlace(btn.dataset.saPlace)));
 
 document.querySelectorAll('[data-close]').forEach(btn=>btn.onclick=()=>closeModal(btn.dataset.close));
 el('langSelect').onchange = e=>{ stopAudio(); state.lang=e.target.value; saveState(); render(); };
