@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/afrikaans",
-      "destination": "/index.html"
+      "destination": "/index"
     }
   ],
   "headers": [
@@ -19,24 +19,6 @@
         {
           "key": "Service-Worker-Allowed",
           "value": "/"
-        }
-      ]
-    },
-    {
-      "source": "/index.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/afrikaans",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
