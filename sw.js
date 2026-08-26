@@ -1,12 +1,10 @@
-const CACHE = "afrikaans-studio-v8";
+const CACHE = "afrikaans-studio-v9-sa";
 const CORE = [
   "/afrikaans",
   "/manifest.webmanifest",
   "/icon-192.png",
   "/icon-512.png",
-  "/character.webp",
   "/journey.webp",
-  "/lesson-scene.webp",
   "/culture.webp"
 ];
 

@@ -2,15 +2,28 @@
   "id": "/afrikaans",
   "name": "Afrikaans Studio",
   "short_name": "Afrikaans",
-  "description": "South African Afrikaans learning studio for mobile, tablet and desktop, from A0 to C2.",
+  "description": "A South Africa-first Afrikaans learning studio from A0 to C2, with local language, culture and pronunciation practice.",
   "start_url": "/afrikaans",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#fbf8f1",
-  "theme_color": "#f7f4ee",
-  "categories": ["education", "language"],
+  "background_color": "#f5ead6",
+  "theme_color": "#007749",
+  "categories": [
+    "education",
+    "language"
+  ],
   "icons": [
-    {"src":"/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
